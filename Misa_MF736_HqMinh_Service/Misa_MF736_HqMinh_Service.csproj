@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Misa_MF736_HqMinh_Common\Misa_MF736_HqMinh_Common.csproj" />
+    <ProjectReference Include="..\Misa_MF736_HqMinh_DataLayer\Misa_MF736_HqMinh_DataLayer.csproj" />
+  </ItemGroup>
+
+</Project>
