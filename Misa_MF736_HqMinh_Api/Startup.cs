@@ -24,6 +24,7 @@ namespace Misa_MF736_HqMinh_Api
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -34,7 +35,17 @@ namespace Misa_MF736_HqMinh_Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("*")
+                                                    .AllowAnyHeader()
+                                                  .AllowAnyMethod();
+                                  });
+            });
+           
             services.AddControllers();
             services.AddTransient<IFeeService, FeeService>();
             services.AddTransient<IFeeDataLayer, FeeDataLayer>();
@@ -57,6 +68,8 @@ namespace Misa_MF736_HqMinh_Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Misa_MF736_HqMinh_Api v1"));
             };
+            //app.UseCors(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors(MyAllowSpecificOrigins);
             //Xử lý Exception chung 
             app.UseExceptionHandler(a => a.Run(async context =>
             {

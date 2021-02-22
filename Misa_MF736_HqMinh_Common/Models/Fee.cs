@@ -32,12 +32,39 @@ namespace Misa_MF736_HqMinh_Common.Models
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
         public string ApplyObject { get; set; }
+        public string ApplyObjectName {
+            get
+            {
+                switch (Convert.ToInt32(ApplyObject))
+                {
+                    case 0: return "Cá nhân";
+                    case 1: return "Lớp";
+                    case 2: return "Khối";
+                    case 3: return "Toàn trường";
+                    default: return "Không xác định";
+                }
+            }
+        }
         public int Property { get; set; }
         /// <summary>
         /// Khoảng thời gian - thời kì
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
         public int? Period { get; set; }
+        public string PeriodName
+        {
+            get
+            {
+                switch (Period)
+                {
+                    case 1: return "Tháng";
+                    case 2: return "Quý";
+                    case 3: return "Học kì";
+                    case 4: return "Năm học";
+                    default: return "Không xác định";
+                }
+            }
+        }
         /// <summary>
         /// Đang áp dụng loại bỏ
         /// CreateBy: MinhHq - 18/02/2021
@@ -103,7 +130,21 @@ namespace Misa_MF736_HqMinh_Common.Models
         /// Tên nhóm phí
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
-        public string FeeGroupName { get; }
+        public string FeeGroupName
+        {
+            get
+            {
+                switch (FeeGroupID)
+                {
+                    case 0: return "";
+                    case 1: return "Học phí";
+                    case 2: return "Bán trú";
+                    case 3: return "Quỹ";
+                    case 4: return "Đồng phục";
+                    default: return "Không xác định";
+                }
+            }
+        }
         #endregion
     }
 }
