@@ -32,19 +32,6 @@ namespace Misa_MF736_HqMinh_Common.Models
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
         public string ApplyObject { get; set; }
-        public string ApplyObjectName {
-            get
-            {
-                switch (Convert.ToInt32(ApplyObject))
-                {
-                    case 0: return "Cá nhân";
-                    case 1: return "Lớp";
-                    case 2: return "Khối";
-                    case 3: return "Toàn trường";
-                    default: return "Không xác định";
-                }
-            }
-        }
         public int Property { get; set; }
         /// <summary>
         /// Khoảng thời gian - thời kì
