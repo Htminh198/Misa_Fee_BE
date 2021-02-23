@@ -49,6 +49,14 @@ namespace Misa_MF736_HqMinh_Service.BaseService
             service.Data = await _db.GetAllDataByID(id);
             return service;
         }
+
+        public virtual async Task<ServiceResult> GetDataOrderBy()
+        {
+            var service = new ServiceResult();
+            service.Data = await _db.GetAllDataOrderBy();
+            return service;
+        }
+
         /// <summary>
         /// Thêm mới dữ liệu
         /// CreateBy: MinhHq - 18/02/2021

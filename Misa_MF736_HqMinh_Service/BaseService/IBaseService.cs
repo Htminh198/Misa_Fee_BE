@@ -42,5 +42,6 @@ namespace Misa_MF736_HqMinh_Service.BaseService
         /// <param name="entity"></param>
         /// <returns>Trả về 1 : Chỉnh sửa thành công ; Trả về 0 : Chỉnh sửa thất bại</returns>
         Task<ServiceResult> Update(T entity);
+        Task<ServiceResult> GetDataOrderBy();
     }
 }

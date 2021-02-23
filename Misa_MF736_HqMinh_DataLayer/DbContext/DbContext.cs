@@ -129,5 +129,12 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
             }
             return _db.Execute(storeName, dynamicParameters, commandType: CommandType.StoredProcedure);
         }
+        public virtual async Task<IEnumerable<T>> GetAllDataOrderBy()
+        {
+            var tableName = typeof(T).Name;
+            var storeName = $"Proc_Get{tableName}OrderBy";
+            var rs = _db.Query<T>(storeName, commandType: CommandType.StoredProcedure).ToList();
+            return rs;
+        }
     }
 }

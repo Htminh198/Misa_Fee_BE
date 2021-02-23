@@ -47,5 +47,6 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
         /// <param name="entity"></param>
         /// <returns></returns>
         Task<bool> CheckNameExit(string name);
+        Task<IEnumerable<T>> GetAllDataOrderBy();
     }
 }

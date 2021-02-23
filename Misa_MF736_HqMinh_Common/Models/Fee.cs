@@ -11,6 +11,8 @@ namespace Misa_MF736_HqMinh_Common.Models
         /// Tên phí
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
+        [Required("Tên khoản thu")]
+        [CheckDuplicate("Tên khoản thu")]
         public string FeeName { get; set; }
         /// <summary>
         /// ID tên nhóm phí
@@ -21,51 +23,27 @@ namespace Misa_MF736_HqMinh_Common.Models
         /// Giá tiền
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
+        [Required("Mức thu")]
         public decimal? Price { get; set; }
         /// <summary>
         /// Đơn vị
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
+        [Required("Đơn vị")]
         public int? Unit { get; set; }
-        public string UnitName {
-            get
-            {
-                switch (Unit)
-                {
-                    case 1: return "ngày";
-                    case 2: return "tuần";
-                    case 3: return "tháng";
-                    case 4: return "học kì";
-                    case 5: return "năm";
-                    default: return "Không xác định";
-                }
-            }
-        }
         /// <summary>
         /// Áp dụng đối tượng
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
+        [Required("Phạm vi thu")]
         public string ApplyObject { get; set; }
         public int Property { get; set; }
         /// <summary>
         /// Khoảng thời gian - thời kì
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
+        [Required("Kỳ thu")]
         public int? Period { get; set; }
-        public string PeriodName
-        {
-            get
-            {
-                switch (Period)
-                {
-                    case 1: return "Tháng";
-                    case 2: return "Quý";
-                    case 3: return "Học kì";
-                    case 4: return "Năm học";
-                    default: return "Không xác định";
-                }
-            }
-        }
         /// <summary>
         /// Đang áp dụng loại bỏ
         /// CreateBy: MinhHq - 18/02/2021
@@ -131,21 +109,7 @@ namespace Misa_MF736_HqMinh_Common.Models
         /// Tên nhóm phí
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
-        public string FeeGroupName
-        {
-            get
-            {
-                switch (FeeGroupID)
-                {
-                    case 0: return "";
-                    case 1: return "Học phí";
-                    case 2: return "Bán trú";
-                    case 3: return "Quỹ";
-                    case 4: return "Đồng phục";
-                    default: return "Không xác định";
-                }
-            }
-        }
+        public string FeeGroupName { get; set; }
         #endregion
     }
 }

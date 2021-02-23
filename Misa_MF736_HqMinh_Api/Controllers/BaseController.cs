@@ -37,6 +37,22 @@ namespace Misa_MF736_HqMinh_Api.Controllers
             }
             return StatusCode(200, rs.Data);
         }
+
+        [HttpGet("GetOderBy")]
+        public async Task<IActionResult> GetOderBy()
+        {
+            var rs = await _service.GetDataOrderBy();
+            var res = rs.Data as List<T>;
+            if (rs.Success == true)
+            {
+                if (res.Count == 0)
+                {
+                    return StatusCode(204, rs.Data);
+                }
+                return StatusCode(200, rs.Data);
+            }
+            return StatusCode(200, rs.Data);
+        }
         /// <summary>
         /// Lấy dữ liệu theo ID
         /// CreateBy: MinhHq - 18/02/2021
