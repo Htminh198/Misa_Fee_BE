@@ -154,14 +154,14 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #endregion
 
             #region kiểm tra trùng tên khoản thu
-            var isExitByCode = await _feeDataLayer.CheckNameExit(entity.FeeName);
-            if (isExitByCode == false)
-            {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_DuplicateFeeName);
-                service.Success = false;
-                service.Data = errorMsg;
-                isValid = false;
-            }
+            //var isExitByCode = await _feeDataLayer.CheckNameExit(entity.FeeName);
+            //if (isExitByCode == false)
+            //{
+            //    errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_DuplicateFeeName);
+            //    service.Success = false;
+            //    service.Data = errorMsg;
+            //    isValid = false;
+            //}
             #endregion
 
             return isValid;
