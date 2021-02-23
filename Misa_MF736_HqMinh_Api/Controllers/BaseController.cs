@@ -47,16 +47,12 @@ namespace Misa_MF736_HqMinh_Api.Controllers
         public async Task<IActionResult> GetByID(int id)
         {
             var rs = await _service.GetDataByID(id);
-            var res = rs.Data as List<T>;
             if (rs.Success == true)
             {
-                if (res.Count == 0)
-                {
-                    return StatusCode(204, rs.Data);
-                }
+                
                 return StatusCode(200, rs.Data);
             }
-            return StatusCode(200, rs.Data);
+            return StatusCode(204, rs.Data);
         }
         /// <summary>
         /// Xóa dữ liệu theo ID

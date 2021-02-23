@@ -74,13 +74,13 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
         /// </summary>
         /// <param name="id"></param>
         /// <returns>object</returns>
-        public virtual async Task<IEnumerable<T>> GetAllDataByID(int id)
+        public virtual async Task<T> GetAllDataByID(int id)
         {
             var tableName = typeof(T).Name;
             var storeName = $"Proc_Get{tableName}ByID";
             DynamicParameters dynamicParameters = new DynamicParameters();
             dynamicParameters.Add($"@{tableName}ID", id);
-            var rs = _db.Query<T>(storeName, dynamicParameters, commandType: CommandType.StoredProcedure).ToList();
+            var rs = _db.Query<T>(storeName, dynamicParameters, commandType: CommandType.StoredProcedure).FirstOrDefault();
             return rs;
         }
         /// <summary>

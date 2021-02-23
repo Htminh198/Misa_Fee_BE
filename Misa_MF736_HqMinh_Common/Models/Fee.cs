@@ -27,6 +27,20 @@ namespace Misa_MF736_HqMinh_Common.Models
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
         public int? Unit { get; set; }
+        public string UnitName {
+            get
+            {
+                switch (Unit)
+                {
+                    case 1: return "ngày";
+                    case 2: return "tuần";
+                    case 3: return "tháng";
+                    case 4: return "học kì";
+                    case 5: return "năm";
+                    default: return "Không xác định";
+                }
+            }
+        }
         /// <summary>
         /// Áp dụng đối tượng
         /// CreateBy: MinhHq - 18/02/2021

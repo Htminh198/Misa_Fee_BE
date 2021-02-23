@@ -19,7 +19,7 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Object</returns>
-        Task<IEnumerable<T>> GetAllDataByID(int id);
+        Task<T> GetAllDataByID(int id);
         /// <summary>
         /// Xóa dữ liệu theo ID
         /// CreateBy: MinhHq - 18/02/2021
