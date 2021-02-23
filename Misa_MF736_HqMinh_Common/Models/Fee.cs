@@ -11,8 +11,8 @@ namespace Misa_MF736_HqMinh_Common.Models
         /// Tên phí
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
-        [Required("Tên khoản thu")]
-        [CheckDuplicate("Tên khoản thu")]
+        //[Required("Tên khoản thu")]
+        //[CheckDuplicate("Tên khoản thu")]
         public string FeeName { get; set; }
         /// <summary>
         /// ID tên nhóm phí
@@ -23,26 +23,26 @@ namespace Misa_MF736_HqMinh_Common.Models
         /// Giá tiền
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
-        [Required("Mức thu")]
+        //[Required("Mức thu")]
         public decimal? Price { get; set; }
         /// <summary>
         /// Đơn vị
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
-        [Required("Đơn vị")]
+        //[Required("Đơn vị")]
         public int? Unit { get; set; }
         /// <summary>
         /// Áp dụng đối tượng
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
-        [Required("Phạm vi thu")]
+        //[Required("Phạm vi thu")]
         public string ApplyObject { get; set; }
         public int Property { get; set; }
         /// <summary>
         /// Khoảng thời gian - thời kì
         /// CreateBy: MinhHq - 18/02/2021
         /// </summary>
-        [Required("Kỳ thu")]
+        //[Required("Kỳ thu")]
         public int? Period { get; set; }
         /// <summary>
         /// Đang áp dụng loại bỏ
