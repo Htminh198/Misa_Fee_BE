@@ -39,11 +39,11 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
             }
             return true;
         }
-        public virtual async Task<bool> CheckNameExitUpdate(string name)
+        public virtual async Task<bool> CheckNameExitUpdate(string name, int id)
         {
             var tableName = typeof(T).Name;
             var sel = $"{tableName}Name";
-            var sql = $"SELECT {sel} FROM {tableName} WHERE LOWER({tableName}.{sel}) = LOWER('{name}')";
+            var sql = $"SELECT {sel} FROM {tableName} WHERE LOWER({tableName}.{sel}) = LOWER('{name}') AND {tableName}ID = {id}";
             var rs = _db.Query<string>(sql, commandType: CommandType.Text).FirstOrDefault();
             if (rs != null)
             {

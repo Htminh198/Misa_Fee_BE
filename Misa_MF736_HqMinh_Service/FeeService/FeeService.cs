@@ -154,7 +154,7 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #endregion
 
             #region kiểm tra trùng tên khoản thu
-            var isExitByCode = await _feeDataLayer.CheckNameExitUpdate(entity.FeeName);
+            var isExitByCode = await _feeDataLayer.CheckNameExitUpdate(entity.FeeName, entity.FeeID);
 
             if (isExitByCode == false)
             {

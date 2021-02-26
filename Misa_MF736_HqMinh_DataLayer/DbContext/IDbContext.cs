@@ -46,7 +46,7 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<bool> CheckNameExitUpdate(string name);
+        Task<bool> CheckNameExitUpdate(string name, int id);
         /// <summary>
         /// Check trùng tên thêm mới
         /// </summary>
