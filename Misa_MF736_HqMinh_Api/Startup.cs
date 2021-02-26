@@ -65,7 +65,8 @@ namespace Misa_MF736_HqMinh_Api
                 var exception = exceptionHandlerPathFeature.Error;
                 var errorMsg = new ErrorMsg();
                 errorMsg.DevMsg = exception.Message;
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.Exception);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.Exception);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.Exception;
                 //await context.Response.WriteAsJsonAsync(new { error = exception.Message });
                 await context.Response.WriteAsJsonAsync(errorMsg);
             }));

@@ -13,7 +13,8 @@ namespace Misa_MF736_HqMinh_Common.Common
         /// <summary>
         /// Thông báo co người dùng
         /// </summary>
-        public List<string> UserMsg { get; set; } = new List<string>();
+        //public List<string> UserMsg { get; set; } = new List<string>();
+        public string UserMsg { get; set; }
         /// <summary>
         /// Mã lỗi
         /// </summary>

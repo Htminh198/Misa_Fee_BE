@@ -31,7 +31,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra tên khoản thu có để trống hay không?
             if (entity.FeeName == null || entity.FeeName == string.Empty)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeName);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeName);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeName;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -41,7 +42,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra giá tiền có để trống hay không?
             if (entity.Price == null || entity.Price == decimal.Zero)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePrice);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePrice);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePrice;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -51,7 +53,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra đơn vị tính có để trống hay không?
             if (entity.Unit == null || entity.Unit == decimal.Zero)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeUnit);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeUnit);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeUnit;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -61,7 +64,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra phạm vi thu có để trống hay không?
             if (entity.ApplyObject == null || entity.ApplyObject == string.Empty)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeApplyObject);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeApplyObject);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeApplyObject;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -71,7 +75,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra kì thu có để trống hay không?
             if (entity.Period == null || entity.Period == decimal.Zero)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePeriod);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePeriod);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePeriod;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -82,7 +87,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             var isExitByCode = await _feeDataLayer.CheckNameExitInsert(entity.FeeName);
             if (isExitByCode == false)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_DuplicateFeeName);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_DuplicateFeeName);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_DuplicateFeeName;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -106,7 +112,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra tên khoản thu có để trống hay không?
             if (entity.FeeName == null || entity.FeeName == string.Empty)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeName);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeName);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeName;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -116,7 +123,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra giá tiền có để trống hay không?
             if (entity.Price == null || entity.Price == decimal.Zero)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePrice);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePrice);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePrice;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -126,7 +134,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra đơn vị tính có để trống hay không?
             if (entity.Unit == null || entity.Unit == decimal.Zero)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeUnit);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeUnit);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeUnit;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -136,7 +145,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra phạm vi thu có để trống hay không?
             if (entity.ApplyObject == null || entity.ApplyObject == string.Empty)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeApplyObject);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeApplyObject);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeeApplyObject;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -146,7 +156,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #region kiểm tra kì thu có để trống hay không?
             if (entity.Period == null || entity.Period == decimal.Zero)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePeriod);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePeriod);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_EmptyFeePeriod;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
@@ -158,7 +169,8 @@ namespace Misa_MF736_HqMinh_Service.FeeService
 
             if (isExitByCode == false)
             {
-                errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_DuplicateFeeName);
+                //errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_DuplicateFeeName);
+                errorMsg.UserMsg += Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_DuplicateFeeName;
                 service.Success = false;
                 service.Data = errorMsg;
                 isValid = false;
