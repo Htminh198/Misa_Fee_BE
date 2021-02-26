@@ -79,7 +79,7 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #endregion
 
             #region kiểm tra trùng tên khoản thu
-            var isExitByCode = await _feeDataLayer.CheckNameExit(entity.FeeName);
+            var isExitByCode = await _feeDataLayer.CheckNameExitInsert(entity.FeeName);
             if (isExitByCode == false)
             {
                 errorMsg.UserMsg.Add(Misa_MF736_HqMinh_Common.Properties.Resources.ErroService_DuplicateFeeName);
@@ -154,7 +154,7 @@ namespace Misa_MF736_HqMinh_Service.FeeService
             #endregion
 
             #region kiểm tra trùng tên khoản thu
-            var isExitByCode = await _feeDataLayer.CheckNameExit(entity.FeeName);
+            var isExitByCode = await _feeDataLayer.CheckNameExitUpdate(entity.FeeName);
 
             if (isExitByCode == false)
             {

@@ -42,11 +42,18 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
         /// <returns>Trả về 1 : Chỉnh sửa thành công ; Trả về 0 : Chỉnh sửa thất bại</returns>
         Task<int> Update(T entity);
         /// <summary>
-        /// Check trùng tên
+        /// Check trùng tên update
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<bool> CheckNameExit(string name);
+        Task<bool> CheckNameExitUpdate(string name);
+        /// <summary>
+        /// Check trùng tên thêm mới
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        Task<bool> CheckNameExitInsert(string name);
+
         Task<IEnumerable<T>> GetAllDataOrderBy();
     }
 }

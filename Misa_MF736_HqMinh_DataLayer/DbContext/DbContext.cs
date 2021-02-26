@@ -27,7 +27,7 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public virtual async Task<bool> CheckNameExit(string name)
+        public virtual async Task<bool> CheckNameExitInsert(string name)
         {
             var tableName = typeof(T).Name;
             var sel = $"{tableName}Name";
@@ -36,6 +36,22 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
             if (rs != null)
             {
                 return false;
+            }
+            return true;
+        }
+        public virtual async Task<bool> CheckNameExitUpdate(string name)
+        {
+            var tableName = typeof(T).Name;
+            var sel = $"{tableName}Name";
+            var sql = $"SELECT {sel} FROM {tableName} WHERE LOWER({tableName}.{sel}) = LOWER('{name}')";
+            var rs = _db.Query<string>(sql, commandType: CommandType.Text).FirstOrDefault();
+            if (rs != null)
+            {
+                if (rs != name)
+                {
+                    return false;
+                }
+                return true;
             }
             return true;
         }
