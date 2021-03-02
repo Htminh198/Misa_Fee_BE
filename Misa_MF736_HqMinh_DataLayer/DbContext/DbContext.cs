@@ -43,17 +43,13 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
         {
             var tableName = typeof(T).Name;
             var sel = $"{tableName}Name";
-            var sql = $"SELECT {sel} FROM {tableName} WHERE LOWER({tableName}.{sel}) = LOWER('{name}') AND {tableName}ID = {id}";
-            var rs = _db.Query<string>(sql, commandType: CommandType.Text).FirstOrDefault();
-            if (rs != null)
+            var sql = $"SELECT count(*) FROM {tableName} WHERE LOWER({tableName}.{sel}) = LOWER('{name}') AND {tableName}ID != {id}";
+            var rs = _db.Query<int>(sql, commandType: CommandType.Text).FirstOrDefault();
+            if (rs != null && rs == 0)
             {
-                if (rs != name)
-                {
-                    return false;
-                }
                 return true;
             }
-            return true;
+            return false;
         }
 
         /// <summary>
@@ -110,7 +106,7 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
             var tableName = typeof(T).Name;
             var storeName = $"Proc_Insert{tableName}";
 
-             var porperties = typeof(T).GetProperties();
+            var porperties = typeof(T).GetProperties();
 
             DynamicParameters dynamicParameters = new DynamicParameters();
 
