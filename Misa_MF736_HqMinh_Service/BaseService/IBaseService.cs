@@ -43,5 +43,6 @@ namespace Misa_MF736_HqMinh_Service.BaseService
         /// <returns>Trả về 1 : Chỉnh sửa thành công ; Trả về 0 : Chỉnh sửa thất bại</returns>
         Task<ServiceResult> Update(T entity);
         Task<ServiceResult> GetDataOrderBy();
+        Task<ServiceResult> Login(string username, string password);
     }
 }

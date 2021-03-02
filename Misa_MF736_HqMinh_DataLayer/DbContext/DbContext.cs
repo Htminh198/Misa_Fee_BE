@@ -148,5 +148,16 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
             var rs = _db.Query<T>(storeName, commandType: CommandType.StoredProcedure).ToList();
             return rs;
         }
+        public async Task<bool> Login(string username, string password)
+        {
+            var tableName = typeof(T).Name;
+            var sql = $"SELECT COUNT(*) FROM {tableName} WHERE {tableName}Name = '{username}' AND Password = '{password}'";
+            var rs = _db.Query<int>(sql, commandType: CommandType.Text).FirstOrDefault();
+            if (rs == 0)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

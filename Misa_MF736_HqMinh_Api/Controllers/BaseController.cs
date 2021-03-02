@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Misa_MF736_HqMinh_Service.BaseService;
 using System;
@@ -23,6 +24,7 @@ namespace Misa_MF736_HqMinh_Api.Controllers
         /// </summary>
         /// <returns>Danh sách truy vấn</returns>
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> Get()
         {
             var rs = await _service.GetData();
@@ -39,6 +41,7 @@ namespace Misa_MF736_HqMinh_Api.Controllers
         }
 
         [HttpGet("GetOderBy")]
+        [Authorize]
         public async Task<IActionResult> GetOderBy()
         {
             var rs = await _service.GetDataOrderBy();
@@ -60,6 +63,7 @@ namespace Misa_MF736_HqMinh_Api.Controllers
         /// <param name="id"></param>
         /// <returns>Dữ liệu theo ID truyền vào</returns>
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<IActionResult> GetByID(int id)
         {
             var rs = await _service.GetDataByID(id);
@@ -77,6 +81,7 @@ namespace Misa_MF736_HqMinh_Api.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             var rs = await _service.DeleteDataByID(id);
@@ -94,6 +99,7 @@ namespace Misa_MF736_HqMinh_Api.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Post([FromBody]T entity)
         {
             var rs = await _service.Insert(entity);
@@ -110,6 +116,7 @@ namespace Misa_MF736_HqMinh_Api.Controllers
         /// <param name="entity"></param>
         /// <returns></returns>
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Put([FromBody]T entity)
         {
             var rs = await _service.Update(entity);

@@ -55,5 +55,6 @@ namespace Misa_MF736_HqMinh_DataLayer.DbContext
         Task<bool> CheckNameExitInsert(string name);
 
         Task<IEnumerable<T>> GetAllDataOrderBy();
+        Task<bool> Login(string username, string password);
     }
 }

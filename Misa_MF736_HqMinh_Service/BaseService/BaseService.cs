@@ -96,6 +96,37 @@ namespace Misa_MF736_HqMinh_Service.BaseService
 
             return service;
         }
+
+        public virtual async Task<ServiceResult> Login(string username, string password)
+        {
+            var service = new ServiceResult();
+            var errorMsg = new ErrorMsg();
+            var isValid = await ValidateDataLogin(username, password, errorMsg);
+            if (isValid == true)
+            {
+                var rs = await _db.Login(username, password);
+                if (rs == true)
+                {
+                    service.Success = true;
+                    service.Data = "Đăng nhập thành công";
+                    return service;
+                }
+                else
+                {
+                    service.Success = true;
+                    service.Data = rs;
+                    return service;
+                }
+            }
+            else
+            {
+                service.Success = false;
+                service.Data = errorMsg;
+            }
+
+            return service;
+        }
+
         /// <summary>
         /// Sửa thông tin dữ liệu
         /// CreateBy: MinhHq - 18/02/2021
@@ -153,6 +184,10 @@ namespace Misa_MF736_HqMinh_Service.BaseService
         /// <param name="errorMsg"></param>
         /// <returns>true : Không trùng ; false : trùng</returns>
         protected virtual async Task<bool> ValidateDataUpdate(T entity, ErrorMsg errorMsg = null)
+        {
+            return true;
+        }
+        protected virtual async Task<bool> ValidateDataLogin(string username, string password, ErrorMsg errorMsg = null)
         {
             return true;
         }

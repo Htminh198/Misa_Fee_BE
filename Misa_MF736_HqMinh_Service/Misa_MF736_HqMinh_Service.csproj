@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="UserService\ldwr0qz5.moo~" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Misa_MF736_HqMinh_Common\Misa_MF736_HqMinh_Common.csproj" />
     <ProjectReference Include="..\Misa_MF736_HqMinh_DataLayer\Misa_MF736_HqMinh_DataLayer.csproj" />
   </ItemGroup>
